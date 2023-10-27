@@ -1,0 +1,67 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>Calculator</title>
+        <style>
+            input[type="text"]{
+                width: 250px;
+                padding: 12px 20px;
+                margin: 4px 0;
+                border-radius: 2px;
+                box-sizing: border-box;
+                background-color: white;
+                color: black;
+            }
+            button{
+                width: 49px;
+                padding: 10px;
+                margin: 5px;
+                border-radius: 2px;
+                box-sizing: border-box;
+                background-color: skyblue;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="text" id="res"><br/>
+        <button onclick="getButtonText(this)" value="CE">CE</button>
+        <button onclick="getButtonText(this)" value="C">C</button>
+        <button onclick="getButtonText(this)" value="(">(</button>
+        <button onclick="getButtonText(this)" value=")">)</button><br/>
+        <button onclick="getButtonText(this)" value="1">1</button>
+        <button onclick="getButtonText(this)" value="2">2</button>
+        <button onclick="getButtonText(this)" value="3">3</button>
+        <button onclick="getButtonText(this)" value="+">+</button><br/>
+        <button onclick="getButtonText(this)" value="4">4</button>
+        <button onclick="getButtonText(this)" value="5">5</button>
+        <button onclick="getButtonText(this)" value="6">6</button>
+        <button onclick="getButtonText(this)" value="-">-</button><br/>
+        <button onclick="getButtonText(this)" value="7">7</button>
+        <button onclick="getButtonText(this)" value="8">8</button>
+        <button onclick="getButtonText(this)" value="9">9</button>
+        <button onclick="getButtonText(this)" value="*">*</button><br/>
+        <button onclick="getButtonText(this)" value=".">.</button>
+        <button onclick="getButtonText(this)" value="0">0</button>
+        <button onclick="getButtonText(this)" value="=">=</button>
+        <button onclick="getButtonText(this)" value="/">/</button>
+        <script>
+            function getButtonText(v){
+                var text=v.getAttribute("value");
+                var str=document.getElementById("res").value;
+                if(text=="C"){
+                    str="";
+                }
+                else if(text=="CE"){
+                    str=str.substring(0,str.length-1);
+                }
+                else if(text=="="){
+                    str=eval(str).toString();
+                }
+                else{
+                    str=str+text;
+                }
+                document.getElementById("res").value=str;
+            }
+        </script>
+    </body>
+</html>
